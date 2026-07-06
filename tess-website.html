@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TESS — Taiwanese-American Earth Science Society</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0E2B5C;
+    --navy-deep: #081d40;
+    --navy-soft: #1a3d72;
+    --gold: #F4B83C;
+    --gold-soft: #fce4ac;
+    --blue-link: #1F8AC0;
+    --ice: #eff6ff;
+    --ice-2: #f8fafc;
+    --ink: #1f2937;
+    --slate: #475569;
+    --slate-light: #64748b;
+    --line: #e5e7eb;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Public Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--blue-link); }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    height: 72px;
+  }
+  .nav-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 28px; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+  .nav-mark {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Spectral', serif; font-weight: 600; font-size: 15px;
+    letter-spacing: 0.5px; flex-shrink: 0;
+  }
+  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .nav-brand-text strong { font-size: 16px; font-weight: 600; color: var(--navy); letter-spacing: 0.5px; }
+  .nav-brand-text span { font-size: 10.5px; color: var(--slate-light); letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 14px; font-weight: 400; color: var(--slate); transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--navy); color: var(--white) !important;
+    padding: 9px 20px; border-radius: 6px; font-size: 13.5px; font-weight: 600;
+    text-decoration: none; transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--navy-soft); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 26px; color: var(--navy); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    position: relative; overflow: hidden;
+    padding: 150px 0 110px;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      repeating-radial-gradient(ellipse 1000px 560px at 75% 30%, transparent 0 44px, rgba(244,184,60,0.06) 45px 46px, transparent 47px),
+      repeating-radial-gradient(ellipse 700px 420px at 75% 30%, transparent 0 64px, rgba(255,255,255,0.04) 65px 66px, transparent 67px);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid rgba(244,184,60,0.45); background: rgba(244,184,60,0.1);
+    color: var(--gold); padding: 6px 16px; border-radius: 30px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    margin-bottom: 26px;
+  }
+  .hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+  .hero h1 {
+    font-family: 'Spectral', serif; font-weight: 500;
+    font-size: clamp(38px, 5vw, 60px); line-height: 1.1; letter-spacing: -0.5px;
+    margin-bottom: 22px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-lede { font-size: 18px; line-height: 1.7; color: #cbd5e1; max-width: 540px; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 14px 30px; border-radius: 7px;
+    font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer;
+    transition: all .2s; border: none;
+  }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .btn-outline-light { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: var(--white); }
+  .btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px; padding: 30px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-card h3 { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .hero-stat .n { font-family: 'Spectral', serif; font-size: 40px; font-weight: 600; color: var(--white); line-height: 1; }
+  .hero-stat .l { font-size: 12.5px; color: #94a3b8; margin-top: 5px; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section.block { padding: 90px 0; }
+  .sec-head { max-width: 720px; margin-bottom: 50px; }
+  .sec-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 600; color: var(--gold); background: var(--navy);
+    padding: 4px 12px; border-radius: 4px; margin-bottom: 18px;
+  }
+  .sec-tag.plain { background: var(--ice); color: var(--navy); }
+  .sec-title { font-family: 'Spectral', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
+  .sec-intro { font-size: 17px; color: var(--slate); margin-top: 16px; }
+
+  /* ---------- ABOUT / PRESIDENT ---------- */
+  .about { background: var(--ice-2); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: start; }
+  .pres-card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; position: sticky; top: 100px;
+  }
+  .pres-card .photo {
+    width: 100%; aspect-ratio: 1/1; object-fit: cover; background: var(--ice);
+  }
+  .pres-card .meta { padding: 22px 24px; }
+  .pres-card .meta .role { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .pres-card .meta .name { font-family: 'Spectral', serif; font-size: 22px; color: var(--navy); font-weight: 600; margin: 4px 0 2px; }
+  .pres-card .meta .title { font-size: 13.5px; color: var(--slate); }
+  .about-body h3 { font-family: 'Spectral', serif; font-size: 26px; color: var(--navy); font-weight: 500; margin-bottom: 18px; }
+  .about-body p { margin-bottom: 16px; color: var(--ink); text-align: justify; }
+  .mission-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 30px; }
+  .mission-item { background: var(--ice); border-radius: 10px; padding: 22px 20px; border-top: 3px solid var(--gold); }
+  .mission-item .ic { width: 38px; height: 38px; border-radius: 9px; background: var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .mission-item .ic svg { width: 19px; height: 19px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
+  .mission-item h4 { font-size: 15px; color: var(--navy); font-weight: 600; margin-bottom: 6px; }
+  .mission-item p { font-size: 13.5px; color: var(--slate); line-height: 1.6; margin: 0; text-align: left; }
+
+  /* ---------- EVENT HIGHLIGHT ---------- */
+  .highlight-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+  .highlight-img { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  .highlight-img img { width: 100%; height: 100%; object-fit: cover; }
+  .highlight-body .date-pill {
+    display: inline-block; background: var(--ice); color: var(--navy); font-weight: 600;
+    font-size: 13px; padding: 6px 14px; border-radius: 30px; margin-bottom: 16px;
+    border: 1px solid #dbe7f7;
+  }
+  .highlight-body h3 { font-family: 'Spectral', serif; font-size: 28px; color: var(--navy); font-weight: 500; line-height: 1.2; margin-bottom: 18px; }
+  .highlight-body p { color: var(--ink); margin-bottom: 14px; }
+  .highlight-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .htag { font-size: 12.5px; background: var(--navy); color: var(--white); padding: 5px 13px; border-radius: 20px; font-weight: 500; }
+
+  /* ---------- UPCOMING EVENTS ---------- */
+  .events { background: var(--navy); color: var(--white); }
+  .events .sec-tag { background: var(--gold); color: var(--navy); }
+  .events .sec-title { color: var(--white); }
+  .events .sec-intro { color: #cbd5e1; }
+  .ev-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .ev-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 12px; padding: 26px; transition: all .2s; display: flex; flex-direction: column;
+  }
+  .ev-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(244,184,60,0.4); transform: translateY(-3px); }
+  .ev-card.forward { border-style: dashed; }
+  .ev-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+  .ev-date { display: flex; flex-direction: column; align-items: center; background: var(--gold); color: var(--navy); border-radius: 9px; padding: 8px 14px; min-width: 64px; }
+  .ev-date .m { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .ev-date .d { font-family: 'Spectral', serif; font-size: 30px; font-weight: 600; line-height: 1; }
+  .ev-badge { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; padding: 5px 11px; border-radius: 20px; }
+  .badge-seminar { background: rgba(31,138,192,0.22); color: #7dd3fc; }
+  .badge-social { background: rgba(244,184,60,0.2); color: var(--gold); }
+  .badge-forward { background: rgba(255,255,255,0.12); color: #cbd5e1; }
+  .ev-card h3 { font-size: 18px; font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 10px; }
+  .ev-time { font-size: 13px; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
+  .ev-detail { font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 6px; }
+  .ev-detail strong { color: #e2e8f0; font-weight: 600; }
+  .ev-loc { font-size: 12.5px; color: #94a3b8; margin-top: 10px; display: flex; align-items: flex-start; gap: 6px; }
+  .ev-loc svg { width: 14px; height: 14px; stroke: #94a3b8; fill: none; stroke-width: 1.6; flex-shrink: 0; margin-top: 2px; }
+  .ev-links { margin-top: auto; padding-top: 16px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .ev-links a { font-size: 13px; color: var(--gold); text-decoration: none; font-weight: 600; }
+  .ev-links a:hover { text-decoration: underline; }
+  .forward-label { grid-column: 1 / -1; text-align: center; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin: 14px 0 4px; }
+
+  /* ---------- MEMBERSHIP / BOARD ---------- */
+  .members { background: var(--ice-2); }
+  .member-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 56px; }
+  .mstat { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 22px; text-align: center; border-bottom: 3px solid var(--gold); }
+  .mstat .n { font-family: 'Spectral', serif; font-size: 44px; font-weight: 600; color: var(--navy); line-height: 1; }
+  .mstat .l { font-size: 13px; color: var(--slate); margin-top: 8px; }
+  .board-title { font-family: 'Spectral', serif; font-size: 24px; color: var(--navy); font-weight: 500; margin-bottom: 24px; text-align: center; }
+  .board-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+  .board-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 20px 18px; text-align: center; transition: all .2s; }
+  .board-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .board-avatar { width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-size: 19px; font-weight: 600; margin: 0 auto 14px; }
+  .board-card .role { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .board-card .name { font-size: 14.5px; color: var(--navy); font-weight: 600; margin-top: 5px; line-height: 1.35; }
+
+  /* ---------- JOIN ---------- */
+  .join { background: var(--navy-deep); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+  .join::before {
+    content:''; position:absolute; inset:0;
+    background-image: repeating-radial-gradient(ellipse 900px 500px at 50% 40%, transparent 0 46px, rgba(244,184,60,0.06) 47px 48px, transparent 49px);
+  }
+  .join-inner { position: relative; z-index: 2; max-width: 660px; margin: 0 auto; }
+  .join h2 { font-family: 'Spectral', serif; font-size: clamp(32px, 4.5vw, 50px); font-weight: 500; margin-bottom: 18px; }
+  .join h2 em { font-style: italic; color: var(--gold); }
+  .join p { font-size: 17px; color: #cbd5e1; margin-bottom: 34px; }
+  .join-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--navy); color: #cbd5e1; padding: 60px 0 30px; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+  .foot-brand { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+  .foot-brand .nav-mark { background: var(--gold); color: var(--navy); }
+  .foot-brand strong { color: var(--white); font-size: 16px; font-weight: 600; }
+  .foot-brand span { color: #94a3b8; font-size: 11px; display: block; }
+  .foot-col p { font-size: 14px; line-height: 1.7; color: #94a3b8; max-width: 320px; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 600; }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .foot-col a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: color .2s; }
+  .foot-col a:hover { color: var(--white); }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .foot-bottom p { font-size: 13px; color: #94a3b8; }
+  .foot-bottom a { color: var(--gold); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 920px) {
+    .hero-grid, .about-grid, .highlight-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pres-card { position: static; max-width: 320px; }
+    .ev-grid, .member-stats { grid-template-columns: 1fr 1fr; }
+    .board-grid { grid-template-columns: repeat(3,1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .mission-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 20px 28px; gap: 18px; }
+    .nav-toggle { display: block; }
+  }
+  @media (max-width: 560px) {
+    .ev-grid, .member-stats, .board-grid, .foot-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .board-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <div class="nav-mark">TESS</div>
+      <div class="nav-brand-text">
+        <strong>TESS</strong>
+        <span>Taiwanese-American Earth Science Society</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#highlight">Highlights</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#members">Membership</a></li>
+      <li><a href="#join" class="nav-cta">Join TESS</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow">Established January 2026</span>
+        <h1>Connecting <em>Taiwanese-American</em> Earth Society</h1>
+        <p class="hero-lede">A professional society dedicated to supporting professional development, fostering networking, and promoting scientific collaboration among Taiwanese-American scientists and engineers in the earth sciences.</p>
+        <div class="hero-actions">
+          <a href="#join" class="btn btn-gold">Become a Member</a>
+          <a href="#about" class="btn btn-outline-light">Our Mission</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>TESS at a Glance</h3>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="n">31</div><div class="l">Members &amp; growing</div></div>
+          <div class="hero-stat"><div class="n">7</div><div class="l">Board members</div></div>
+          <div class="hero-stat"><div class="n">9</div><div class="l">Lifetime members</div></div>
+          <div class="hero-stat"><div class="n">2026</div><div class="l">Year founded</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT / PRESIDENT'S MESSAGE -->
+<section class="block about" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag plain">Message from the President</span>
+      <h2 class="sec-title">Why TESS exists</h2>
+    </div>
+    <div class="about-grid">
+      <div class="pres-card">
+        <img class="photo" src="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/04ce5a42-8a15-7d7e-01ae-fbb464a4f109.jpg" alt="Ying-Hwa (Bill) Kuo, President of TESS" />
+        <div class="meta">
+          <div class="role">President</div>
+          <div class="name">Ying-Hwa (Bill) Kuo</div>
+          <div class="title">Taiwanese-American Earth Science Society</div>
+        </div>
+      </div>
+      <div class="about-body">
+        <h3>Four decades of U.S.–Taiwan collaboration in earth science</h3>
+        <p>For over forty years, U.S.–Taiwan collaboration in earth system science has advanced both nations and the broader scientific community. From the 1987 Taiwan Area Mesoscale Experiment (TAMEX) — the first major mesoscale field experiment in East Asia — to the 2006 COSMIC satellite mission that delivered the world's first real-time constellation of GNSS radio occultation data, these partnerships have shaped modern weather prediction and climate monitoring.</p>
+        <p>Taiwanese scientists working in the U.S. have played a unique and critical role, understanding and connecting the science communities on both sides of the Pacific. Yet many work in isolation, with little networking among fellow Taiwanese scientists across the field.</p>
+        <p>As first-generation immigrants, Taiwanese-American scientists face challenges including language barriers, cultural differences, and communication hurdles that can slow career progression. TESS was created to change that — providing mentorship, connection, and a professional home.</p>
+
+        <div class="mission-row">
+          <div class="mission-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <h4>Professional Development</h4>
+            <p>Mentorship and guidance to help members thrive and advance in their careers.</p>
+          </div>
+          <div class="mission-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+            <h4>Networking</h4>
+            <p>Opportunities to connect professionally and socially across all career stages.</p>
+          </div>
+          <div class="mission-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
+            <h4>Scientific Collaboration</h4>
+            <p>Promoting research partnerships that strengthen ties between Taiwan and the U.S.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT HIGHLIGHT -->
+<section class="block" id="highlight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Event Highlight</span>
+      <h2 class="sec-title">Celebrating our launch</h2>
+    </div>
+    <div class="highlight-grid">
+      <div class="highlight-img">
+        <img src="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/4d9a2455-0b61-8b57-d531-56aed5fd078e.jpg" alt="TESS Luncheon group photo at NSF NCAR Mesa Laboratory" />
+      </div>
+      <div class="highlight-body">
+        <span class="date-pill">March 18, 2026 · NSF NCAR Mesa Laboratory</span>
+        <h3>TESS Luncheon — celebrating our establishment &amp; U.S.–Taiwan science collaboration</h3>
+        <p>TESS hosted its first event celebrating its official launch and long-term U.S.–Taiwan collaboration in atmospheric sciences. Around 40 participants attended, including Director General Debby Huang (TECO Denver), Dr. Li-Wei Chou (TECO Los Angeles), and senior leaders from UCAR, NCAR, and NOAA.</p>
+        <p>Dr. Chou introduced funding programs for U.S.–Taiwan collaboration, while the TESS president presented the society's background, mission, and logo (designed by board member Chih-Ting Hsu).</p>
+        <div class="highlight-tags">
+          <span class="htag">Xtalent Program</span>
+          <span class="htag">Dragon Gate Program</span>
+          <span class="htag">IIPP Internship</span>
+          <span class="htag">~40 Attendees</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section class="block events" id="events">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Upcoming Events</span>
+      <h2 class="sec-title">Mark your calendars</h2>
+      <p class="sec-intro">Here's what's coming up for the TESS community — seminars, social gatherings, and partner events.</p>
+    </div>
+    <div class="ev-grid">
+
+      <!-- May 12 -->
+      <div class="ev-card">
+        <div class="ev-top">
+          <div class="ev-date"><span class="m">May</span><span class="d">12</span></div>
+          <span class="ev-badge badge-seminar">Science Seminar</span>
+        </div>
+        <h3>CWA AI in Action</h3>
+        <div class="ev-time">Tue, May 12, 2026 · 2:00–3:00 pm MDT · Hybrid</div>
+        <div class="ev-detail"><strong>Presenter:</strong> Dr. Cheng-Chin Liu (劉正欽), Associate Research Fellow, Taiwan Central Weather Administration</div>
+        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> FL2-1003, NSF NCAR Foothills Laboratory, Boulder, CO</div>
+        <div class="ev-links">
+          <a href="https://meet.google.com/vba-ryii-bfp" target="_blank">Google Meet ↗</a>
+          <a href="https://forms.gle/4GGX8i4rY2aX5tERA" target="_blank">Register ↗</a>
+        </div>
+      </div>
+
+      <!-- June 18 -->
+      <div class="ev-card">
+        <div class="ev-top">
+          <div class="ev-date"><span class="m">Jun</span><span class="d">18</span></div>
+          <span class="ev-badge badge-seminar">Science Seminar</span>
+        </div>
+        <h3>Taiwan Earth System Model (TaiESM)</h3>
+        <div class="ev-time">Thu, June 18, 2026 · 3:00–4:00 pm MDT · Hybrid</div>
+        <div class="ev-detail"><strong>Presenters:</strong> Dr. Yi-Hsuan Chen (陳毅軒), Dr. Wei-Liang Lee (李威良) &amp; Dr. Chia-Ying Tu (杜佳穎), Research Center for Environmental Changes, Academia Sinica</div>
+        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> FL2-1003, NSF NCAR Foothills Laboratory, Boulder, CO</div>
+        <div class="ev-links">
+          <a href="https://meet.google.com/zaw-jgpy-uvu" target="_blank">Google Meet ↗</a>
+          <a href="https://forms.gle/8YyKPTWpaADyLgya7" target="_blank">Register ↗</a>
+        </div>
+      </div>
+
+      <!-- June 27 Dragon Boat -->
+      <div class="ev-card">
+        <div class="ev-top">
+          <div class="ev-date"><span class="m">Jun</span><span class="d">27</span></div>
+          <span class="ev-badge badge-social">Social</span>
+        </div>
+        <h3>Dragon Boat Festival · 2026 TESS 端午同歡</h3>
+        <div class="ev-time">Sat, June 27, 2026 · Boulder Area</div>
+        <div class="ev-detail">A lunch gathering to celebrate the 2026 Dragon Boat Festival. Save the date and join us for a great time! More details will be shared via TESS email.</div>
+        <div class="ev-links">
+          <a href="#join">Stay updated ↗</a>
+        </div>
+      </div>
+
+      <!-- Forwarding label + May 14 -->
+      <div class="forward-label">— Partner / Forwarding Event —</div>
+      <div class="ev-card forward">
+        <div class="ev-top">
+          <div class="ev-date"><span class="m">May</span><span class="d">14</span></div>
+          <span class="ev-badge badge-forward">TECO Denver</span>
+        </div>
+        <h3>Dynamics of U.S.–Taiwan–China Relations</h3>
+        <div class="ev-time">Thu, May 14, 2026 · 5:30 pm MDT · In-person</div>
+        <div class="ev-detail"><strong>Speakers:</strong> Dr. Fang-Yu Chen (Soochow University) &amp; Dr. Kharis Templeman (Hoover Institution, Stanford). Opening remarks by Debby H. H. Huang (TECO Denver). Dinner provided.</div>
+        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Renaissance Room, Mary Reed Building, University of Denver</div>
+        <div class="ev-links">
+          <a href="https://drive.google.com/file/d/1TSAGaHDN3qCKfAknVNjh6Ik_yiaC2USN/view?usp=sharing" target="_blank">Event Flyer ↗</a>
+          <a href="https://crimsonconnect.du.edu/KOR/rsvp_boot?id=2276958" target="_blank">Register ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP / BOARD -->
+<section class="block members" id="members">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+      <span class="sec-tag plain">Membership Update</span>
+      <h2 class="sec-title">A growing community</h2>
+      <p class="sec-intro">Since recruiting began on February 20, 2026, our community has grown quickly — with members across career stages and a strong base in atmospheric research.</p>
+    </div>
+
+    <div class="member-stats">
+      <div class="mstat"><div class="n">31</div><div class="l">Total members</div></div>
+      <div class="mstat"><div class="n">22</div><div class="l">Based in Colorado</div></div>
+      <div class="mstat"><div class="n">15</div><div class="l">Early-career scientists</div></div>
+      <div class="mstat"><div class="n">9</div><div class="l">Lifetime members</div></div>
+    </div>
+
+    <h3 class="board-title">Our Board Members</h3>
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="board-avatar">YK</div>
+        <div class="role">President</div>
+        <div class="name">Ying-Hwa (Bill) Kuo</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar">SL</div>
+        <div class="role">President Elect</div>
+        <div class="name">Cheng-Hsuan (Sarah) Lu</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar">TL</div>
+        <div class="role">Finance</div>
+        <div class="name">Tzu-Shun Lin</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar">CH</div>
+        <div class="role">Membership</div>
+        <div class="name">Chih-Ting Hsu &amp; Ting-Yu Cha</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar">HL</div>
+        <div class="role">Event</div>
+        <div class="name">Hsiao-Chun Lin &amp; Shih-Wei Wei</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar">YK</div>
+        <div class="role">Communication</div>
+        <div class="name">Yao-Chun Ko</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section class="block join" id="join">
+  <div class="wrap">
+    <div class="join-inner">
+      <span class="sec-tag">Join Us</span>
+      <h2>Become part of <em>TESS</em></h2>
+      <p>Whether you're a student, early-career scientist, or established researcher, TESS is your professional home. Help us build a stronger community of Taiwanese-American earth scientists. Encourage your colleagues and friends to sign up too!</p>
+      <div class="join-actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0ZIVSwjGEw-nCCFchnFaXRrnXaUWsgsuwYLgpclAxZ0515g/viewform" target="_blank" class="btn btn-gold">Register for Membership</a>
+        <a href="mailto:tess.communications.team@gmail.com" class="btn btn-outline-light">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-brand">
+          <div class="nav-mark">TESS</div>
+          <div>
+            <strong>TESS</strong>
+            <span>Taiwanese-American Earth Science Society</span>
+          </div>
+        </div>
+        <p>A professional society supporting the success of Taiwanese-American scientists and engineers in the earth sciences — through professional development, networking, and scientific collaboration. Founded January 2026.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About TESS</a></li>
+          <li><a href="#highlight">Event Highlights</a></li>
+          <li><a href="#events">Upcoming Events</a></li>
+          <li><a href="#members">Membership</a></li>
+          <li><a href="#members">Board Members</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd0ZIVSwjGEw-nCCFchnFaXRrnXaUWsgsuwYLgpclAxZ0515g/viewform" target="_blank">Join TESS</a></li>
+          <li><a href="mailto:tess.communications.team@gmail.com">Post a Job</a></li>
+          <li><a href="mailto:tess.communications.team@gmail.com">Contact Us</a></li>
+          <li><a href="https://www.facebook.com/share/p/1AnRcPwM7R/" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Taiwanese-American Earth Science Society. All rights reserved.</p>
+      <p>Contact: <a href="mailto:tess.communications.team@gmail.com">tess.communications.team@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
