@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TESS — Taiwanese-American Earth Science Society</title>
+<link rel="icon" type="image/png" href="small_logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -53,13 +54,7 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .nav-brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
-  .nav-mark {
-    width: 42px; height: 42px; border-radius: 50%;
-    background: var(--navy); color: var(--white);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Spectral', serif; font-weight: 600; font-size: 15px;
-    letter-spacing: 0.5px; flex-shrink: 0;
-  }
+  .nav-logo { height: 46px; width: auto; flex-shrink: 0; }
   .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
   .nav-brand-text strong { font-size: 16px; font-weight: 600; color: var(--navy); letter-spacing: 0.5px; }
   .nav-brand-text span { font-size: 10.5px; color: var(--slate-light); letter-spacing: 0.5px; }
@@ -237,11 +232,12 @@
 
   /* ---------- FOOTER ---------- */
   footer { background: var(--navy); color: #cbd5e1; padding: 60px 0 30px; }
-  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
-  .foot-brand { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
-  .foot-brand .nav-mark { background: var(--gold); color: var(--navy); }
-  .foot-brand strong { color: var(--white); font-size: 16px; font-weight: 600; }
-  .foot-brand span { color: #94a3b8; font-size: 11px; display: block; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; margin-bottom: 44px; }
+  .foot-logo {
+    display: inline-block; background: var(--white);
+    padding: 14px 20px; border-radius: 10px; margin-bottom: 20px;
+  }
+  .foot-logo img { height: 54px; width: auto; }
   .foot-col p { font-size: 14px; line-height: 1.7; color: #94a3b8; max-width: 320px; }
   .foot-col h4 { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 600; }
   .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
@@ -276,7 +272,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
-      <div class="nav-mark">TESS</div>
+      <img class="nav-logo" src="small_logo.png" alt="TESS logo" />
       <div class="nav-brand-text">
         <strong>TESS</strong>
         <span>Taiwanese-American Earth Science Society</span>
@@ -539,13 +535,9 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <div class="foot-brand">
-          <div class="nav-mark">TESS</div>
-          <div>
-            <strong>TESS</strong>
-            <span>Taiwanese-American Earth Science Society</span>
-          </div>
-        </div>
+        <a href="#top" class="foot-logo">
+          <img src="Full_logo.png" alt="TESS — Taiwanese-American Earth Science Society" />
+        </a>
         <p>A professional society supporting the success of Taiwanese-American scientists and engineers in the earth sciences — through professional development, networking, and scientific collaboration. Founded January 2026.</p>
       </div>
       <div class="foot-col">
@@ -556,15 +548,6 @@
           <li><a href="#events">Upcoming Events</a></li>
           <li><a href="#members">Membership</a></li>
           <li><a href="#members">Board Members</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Get Involved</h4>
-        <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd0ZIVSwjGEw-nCCFchnFaXRrnXaUWsgsuwYLgpclAxZ0515g/viewform" target="_blank">Join TESS</a></li>
-          <li><a href="mailto:tess.communications.team@gmail.com">Post a Job</a></li>
-          <li><a href="mailto:tess.communications.team@gmail.com">Contact Us</a></li>
-          <li><a href="https://www.facebook.com/share/p/1AnRcPwM7R/" target="_blank">Facebook</a></li>
         </ul>
       </div>
     </div>
