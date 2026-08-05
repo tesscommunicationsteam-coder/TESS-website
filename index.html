@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TESS — Taiwanese-American Earth Science Society</title>
-<link rel="icon" type="image/png" href="small_logo.png" />
+<link rel="icon" type="image/png" href="photo/logo/small_logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -291,7 +291,8 @@
   .board-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .board-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 20px 18px; text-align: center; transition: all .2s; }
   .board-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .board-avatar { width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-size: 19px; font-weight: 600; margin: 0 auto 14px; }
+  .board-avatar { width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-size: 19px; font-weight: 600; margin: 0 auto 14px; overflow: hidden; }
+  .board-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .board-card .role { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
   .board-card .name { font-size: 14.5px; color: var(--navy); font-weight: 600; margin-top: 5px; line-height: 1.35; }
 
@@ -349,7 +350,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
-      <img class="nav-logo" src="small_logo.png" alt="TESS logo" />
+      <img class="nav-logo" src="photo/logo/small_logo.png" alt="TESS logo" />
       <div class="nav-brand-text">
         <strong>TESS</strong>
         <span>Taiwanese-American Earth Science Society</span>
@@ -445,7 +446,7 @@
     </div>
     <div class="highlight-grid">
       <div class="highlight-img">
-        <a href="photo/dragon-boat-2026.jpg" target="_blank" rel="noopener"><img src="photo/dragon-boat-2026.jpg" alt="TESS Dragon Boat Festival 2026 group photo in Boulder" /></a>
+        <a href="photo/event/dragon-boat-2026.jpg" target="_blank" rel="noopener"><img src="photo/event/dragon-boat-2026.jpg" alt="TESS Dragon Boat Festival 2026 group photo in Boulder" /></a>
       </div>
       <div class="highlight-body">
         <span class="date-pill">June 27, 2026 · Boulder, CO</span>
@@ -520,6 +521,12 @@
         <div class="recap-content">
           <p>TESS hosted its first event celebrating its official launch and long-term U.S.–Taiwan collaboration in atmospheric sciences. Around 40 participants attended, including Director General Debby Huang (TECO Denver), Dr. Li-Wei Chou (TECO Los Angeles), and senior leaders from UCAR, NCAR, and NOAA.</p>
           <p>Dr. Chou introduced funding programs for U.S.–Taiwan collaboration, while the TESS president presented the society's background, mission, and logo (designed by board member Chih-Ting Hsu).</p>
+          <div class="highlight-tags">
+            <span class="htag">Xtalent Program</span>
+            <span class="htag">Dragon Gate Program</span>
+            <span class="htag">IIPP Internship</span>
+            <span class="htag">~40 Attendees</span>
+          </div>
           <div class="recap-photos">
             <a href="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/4d9a2455-0b61-8b57-d531-56aed5fd078e.jpg" target="_blank" rel="noopener"><img src="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/4d9a2455-0b61-8b57-d531-56aed5fd078e.jpg" alt="TESS Luncheon group photo at NSF NCAR Mesa Laboratory" /></a>
           </div>
@@ -641,7 +648,7 @@
         <div class="name">Shih-Wei Wei</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar">YK</div>
+        <div class="board-avatar"><img src="photo/board_headshot/yao-chun-ko.jpg" alt="Yao-Chun Ko" /></div>
         <div class="role">Communication</div>
         <div class="name">Yao-Chun Ko</div>
       </div>
@@ -670,7 +677,7 @@
     <div class="foot-grid">
       <div class="foot-col">
         <a href="#top" class="foot-logo">
-          <img src="Full_logo.png" alt="TESS — Taiwanese-American Earth Science Society" />
+          <img src="photo/logo/Full_logo.png" alt="TESS — Taiwanese-American Earth Science Society" />
         </a>
         <p>A professional society supporting the success of Taiwanese-American scientists and engineers in the earth sciences — through professional development, networking, and scientific collaboration. Founded January 2026.</p>
       </div>
