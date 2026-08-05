@@ -223,6 +223,28 @@
     background: var(--ice-2); display: flex; align-items: center; justify-content: center;
     text-align: center; font-size: 12.5px; color: var(--slate-light); padding: 10px;
   }
+  /* album cover card (used in the featured highlight image slot) */
+  .album-cover {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; text-align: center; min-height: 260px; height: 100%;
+    background: var(--navy);
+    background-image: repeating-radial-gradient(ellipse 520px 300px at 50% 40%, transparent 0 30px, rgba(244,184,60,0.07) 31px 32px, transparent 33px);
+    color: var(--white); padding: 40px 28px;
+  }
+  .album-cover .album-ic { width: 54px; height: 54px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .album-cover p { color: #cbd5e1; font-size: 14px; margin: 0; max-width: 300px; }
+  .album-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--navy); font-weight: 600; font-size: 14.5px;
+    padding: 12px 24px; border-radius: 7px; text-decoration: none; transition: all .2s;
+  }
+  .album-btn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  /* album link inside a recap */
+  .recap-album {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 6px;
+    font-size: 13.5px; font-weight: 600; color: var(--blue-link); text-decoration: none;
+  }
+  .recap-album:hover { text-decoration: underline; }
 
   /* ---------- UPCOMING EVENTS ---------- */
   .events { background: var(--navy); color: var(--white); }
@@ -240,6 +262,7 @@
   .ev-date { display: flex; flex-direction: column; align-items: center; background: var(--gold); color: var(--navy); border-radius: 9px; padding: 8px 14px; min-width: 64px; }
   .ev-date .m { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
   .ev-date .d { font-family: 'Spectral', serif; font-size: 30px; font-weight: 600; line-height: 1; }
+  .ev-date.soon { justify-content: center; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; text-align: center; padding: 12px; }
   .ev-badge { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; padding: 5px 11px; border-radius: 20px; }
   .badge-seminar { background: rgba(31,138,192,0.22); color: #7dd3fc; }
   .badge-social { background: rgba(244,184,60,0.2); color: var(--gold); }
@@ -356,7 +379,7 @@
       <div class="hero-card">
         <h3>TESS at a Glance</h3>
         <div class="hero-stats">
-          <div class="hero-stat"><div class="n">31</div><div class="l">Members &amp; growing</div></div>
+          <div class="hero-stat"><div class="n">38</div><div class="l">Members &amp; growing</div></div>
           <div class="hero-stat"><div class="n">7</div><div class="l">Board members</div></div>
           <div class="hero-stat"><div class="n">9</div><div class="l">Lifetime members</div></div>
           <div class="hero-stat"><div class="n">2026</div><div class="l">Year founded</div></div>
@@ -419,18 +442,21 @@
     </div>
     <div class="highlight-grid">
       <div class="highlight-img">
-        <img src="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/4d9a2455-0b61-8b57-d531-56aed5fd078e.jpg" alt="TESS Luncheon group photo at NSF NCAR Mesa Laboratory" />
+        <div class="album-cover">
+          <svg class="album-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Photos from the day are collected in our shared album.</p>
+          <a class="album-btn" href="https://drive.google.com/drive/folders/1dz7XKRCQW_1Qgx2J_DvLFNy1tXJ42NIj?usp=drive_link" target="_blank" rel="noopener">View Photo Album ↗</a>
+        </div>
       </div>
       <div class="highlight-body">
-        <span class="date-pill">March 18, 2026 · NSF NCAR Mesa Laboratory</span>
-        <h3>TESS Luncheon — celebrating our establishment &amp; U.S.–Taiwan science collaboration</h3>
-        <p>TESS hosted its first event celebrating its official launch and long-term U.S.–Taiwan collaboration in atmospheric sciences. Around 40 participants attended, including Director General Debby Huang (TECO Denver), Dr. Li-Wei Chou (TECO Los Angeles), and senior leaders from UCAR, NCAR, and NOAA.</p>
-        <p>Dr. Chou introduced funding programs for U.S.–Taiwan collaboration, while the TESS president presented the society's background, mission, and logo (designed by board member Chih-Ting Hsu).</p>
+        <span class="date-pill">June 27, 2026 · Boulder, CO</span>
+        <h3>Dragon Boat Festival · 2026 TESS 端午同歡</h3>
+        <p>On a bright summer Saturday, the TESS community gathered in Boulder for a relaxed lunch to celebrate the Dragon Boat Festival (端午節) — one of the most cherished holidays in Taiwanese culture. Members, families, and friends came together over good food and warm conversation, strengthening the sense of community that TESS was founded to nurture.</p>
+        <p>The gathering offered a welcome chance for Taiwanese-American earth scientists across all career stages to unwind, reconnect, and welcome newcomers in a friendly, informal setting. Events like this remind us that TESS is not only a professional network, but also a home away from home.</p>
         <div class="highlight-tags">
-          <span class="htag">Xtalent Program</span>
-          <span class="htag">Dragon Gate Program</span>
-          <span class="htag">IIPP Internship</span>
-          <span class="htag">~40 Attendees</span>
+          <span class="htag">端午節</span>
+          <span class="htag">Community Lunch</span>
+          <span class="htag">Boulder</span>
         </div>
       </div>
     </div>
@@ -441,49 +467,76 @@
       • The event above stays OPEN (it's your most recent / featured event).
       • Each <details class="recap"> block below is a PAST event that starts FOLDED.
       • To add another past event, copy one whole <details>...</details> block and edit it.
-      • Replace the placeholder text and the photo placeholders with real content.
-      • For photos, swap each <div class="photo-placeholder">...</div> with:
-            <img src="DIRECT_IMAGE_URL" alt="short description" />
-        (You'll send me the photo links and I'll insert them for you.)
+      • For a photo ALBUM (e.g. a Google Drive folder), use the "recap-album" link and
+        paste the folder's share URL into href — folder links open fine as clickable links.
+      • To EMBED an actual photo, you need a DIRECT image URL (ends in .jpg/.png and shows
+        only the image). Then use: <img src="DIRECT_IMAGE_URL" alt="short description" />
     -->
     <div class="recaps">
       <h3 class="recaps-title">Past Event Recaps</h3>
       <p class="recaps-sub">Click any event below to expand its recap and photos.</p>
 
-      <!-- ===== PAST EVENT #1 (placeholder) ===== -->
+      <!-- ===== June 18 — TaiESM seminar ===== -->
       <details class="recap">
         <summary class="recap-summary">
           <div class="recap-summary-main">
-            <span class="recap-date">[ Date · Location ]</span>
-            <h4>[ Event title goes here ]</h4>
+            <span class="recap-date">June 18, 2026 · Hybrid, Boulder</span>
+            <h4>Taiwan Earth System Model (TaiESM) — Science Seminar</h4>
           </div>
           <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
         <div class="recap-content">
-          <p>[ Write a short recap of this event here — what it was, who attended, any highlights. ]</p>
-          <div class="recap-photos">
-            <div class="photo-placeholder">Photo 1 — link to be added</div>
-            <div class="photo-placeholder">Photo 2 — link to be added</div>
-            <div class="photo-placeholder">Photo 3 — link to be added</div>
-          </div>
+          <p>TESS hosted a science seminar on the Taiwan Earth System Model (TaiESM), presented by Dr. Yi-Hsuan Chen (陳毅軒), Dr. Wei-Liang Lee (李威良), and Dr. Chia-Ying Tu (杜佳穎) of the Research Center for Environmental Changes, Academia Sinica. The hybrid session brought together researchers at NSF NCAR's Foothills Laboratory and online to explore Taiwan's contributions to global earth system modeling.</p>
+          <!-- To add a photo album, replace href="#" with your Google Drive folder link -->
+          <a class="recap-album" href="#"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Photo album — link to be added</a>
         </div>
       </details>
 
-      <!-- ===== PAST EVENT #2 (placeholder) ===== -->
+      <!-- ===== May 14 — Dynamics of U.S.–Taiwan–China Relations ===== -->
       <details class="recap">
         <summary class="recap-summary">
           <div class="recap-summary-main">
-            <span class="recap-date">[ Date · Location ]</span>
-            <h4>[ Event title goes here ]</h4>
+            <span class="recap-date">May 14, 2026 · University of Denver</span>
+            <h4>Dynamics of U.S.–Taiwan–China Relations (TECO Denver)</h4>
           </div>
           <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
         </summary>
         <div class="recap-content">
-          <p>[ Write a short recap of this event here. ]</p>
+          <p>In this partner event co-organized with TECO Denver, Dr. Fang-Yu Chen (Soochow University) and Dr. Kharis Templeman (Hoover Institution, Stanford) spoke on the evolving dynamics of U.S.–Taiwan–China relations, with opening remarks by Director General Debby H. H. Huang. The evening discussion at the Mary Reed Building drew attendees from across the community over dinner.</p>
+          <a class="recap-album" href="https://drive.google.com/file/d/1TSAGaHDN3qCKfAknVNjh6Ik_yiaC2USN/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg> Event Flyer ↗</a>
+        </div>
+      </details>
+
+      <!-- ===== May 12 — CWA AI in Action ===== -->
+      <details class="recap">
+        <summary class="recap-summary">
+          <div class="recap-summary-main">
+            <span class="recap-date">May 12, 2026 · Hybrid, Boulder</span>
+            <h4>CWA AI in Action — Science Seminar</h4>
+          </div>
+          <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="recap-content">
+          <p>Dr. Cheng-Chin Liu (劉正欽), Associate Research Fellow at Taiwan's Central Weather Administration, presented "CWA AI in Action," sharing how the CWA is applying artificial intelligence in operational weather forecasting. The hybrid seminar was held at NSF NCAR's Foothills Laboratory and online.</p>
+          <!-- To add a photo album, replace href="#" with your Google Drive folder link -->
+          <a class="recap-album" href="#"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Photo album — link to be added</a>
+        </div>
+      </details>
+
+      <!-- ===== March 18 — TESS Launch Luncheon ===== -->
+      <details class="recap">
+        <summary class="recap-summary">
+          <div class="recap-summary-main">
+            <span class="recap-date">March 18, 2026 · NSF NCAR Mesa Laboratory</span>
+            <h4>TESS Launch Luncheon — celebrating our establishment</h4>
+          </div>
+          <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="recap-content">
+          <p>TESS hosted its first event celebrating its official launch and long-term U.S.–Taiwan collaboration in atmospheric sciences. Around 40 participants attended, including Director General Debby Huang (TECO Denver), Dr. Li-Wei Chou (TECO Los Angeles), and senior leaders from UCAR, NCAR, and NOAA.</p>
+          <p>Dr. Chou introduced funding programs for U.S.–Taiwan collaboration, while the TESS president presented the society's background, mission, and logo (designed by board member Chih-Ting Hsu).</p>
           <div class="recap-photos">
-            <div class="photo-placeholder">Photo 1 — link to be added</div>
-            <div class="photo-placeholder">Photo 2 — link to be added</div>
-            <div class="photo-placeholder">Photo 3 — link to be added</div>
+            <img src="https://mcusercontent.com/da9419b0e438586d7068ea20a/images/4d9a2455-0b61-8b57-d531-56aed5fd078e.jpg" alt="TESS Luncheon group photo at NSF NCAR Mesa Laboratory" />
           </div>
         </div>
       </details>
@@ -503,66 +556,45 @@
     </div>
     <div class="ev-grid">
 
-      <!-- May 12 -->
+      <!-- Mid-Autumn Festival -->
       <div class="ev-card">
         <div class="ev-top">
-          <div class="ev-date"><span class="m">May</span><span class="d">12</span></div>
-          <span class="ev-badge badge-seminar">Science Seminar</span>
-        </div>
-        <h3>CWA AI in Action</h3>
-        <div class="ev-time">Tue, May 12, 2026 · 2:00–3:00 pm MDT · Hybrid</div>
-        <div class="ev-detail"><strong>Presenter:</strong> Dr. Cheng-Chin Liu (劉正欽), Associate Research Fellow, Taiwan Central Weather Administration</div>
-        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> FL2-1003, NSF NCAR Foothills Laboratory, Boulder, CO</div>
-        <div class="ev-links">
-          <a href="https://meet.google.com/vba-ryii-bfp" target="_blank">Google Meet ↗</a>
-          <a href="https://forms.gle/4GGX8i4rY2aX5tERA" target="_blank">Register ↗</a>
-        </div>
-      </div>
-
-      <!-- June 18 -->
-      <div class="ev-card">
-        <div class="ev-top">
-          <div class="ev-date"><span class="m">Jun</span><span class="d">18</span></div>
-          <span class="ev-badge badge-seminar">Science Seminar</span>
-        </div>
-        <h3>Taiwan Earth System Model (TaiESM)</h3>
-        <div class="ev-time">Thu, June 18, 2026 · 3:00–4:00 pm MDT · Hybrid</div>
-        <div class="ev-detail"><strong>Presenters:</strong> Dr. Yi-Hsuan Chen (陳毅軒), Dr. Wei-Liang Lee (李威良) &amp; Dr. Chia-Ying Tu (杜佳穎), Research Center for Environmental Changes, Academia Sinica</div>
-        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> FL2-1003, NSF NCAR Foothills Laboratory, Boulder, CO</div>
-        <div class="ev-links">
-          <a href="https://meet.google.com/zaw-jgpy-uvu" target="_blank">Google Meet ↗</a>
-          <a href="https://forms.gle/8YyKPTWpaADyLgya7" target="_blank">Register ↗</a>
-        </div>
-      </div>
-
-      <!-- June 27 Dragon Boat -->
-      <div class="ev-card">
-        <div class="ev-top">
-          <div class="ev-date"><span class="m">Jun</span><span class="d">27</span></div>
+          <div class="ev-date soon">Coming<br>soon</div>
           <span class="ev-badge badge-social">Social</span>
         </div>
-        <h3>Dragon Boat Festival · 2026 TESS 端午同歡</h3>
-        <div class="ev-time">Sat, June 27, 2026 · Boulder Area</div>
-        <div class="ev-detail">A lunch gathering to celebrate the 2026 Dragon Boat Festival. Save the date and join us for a great time! More details will be shared via TESS email.</div>
+        <h3>Mid-Autumn Festival · 中秋節</h3>
+        <div class="ev-time">Late September 2026 · Date coming soon</div>
+        <div class="ev-detail">Join the TESS community to celebrate the Mid-Autumn Festival together. Details and the confirmed date will be shared via TESS email.</div>
         <div class="ev-links">
           <a href="#join">Stay updated ↗</a>
         </div>
       </div>
 
-      <!-- Forwarding label + May 14 -->
-      <div class="forward-label">— Partner / Forwarding Event —</div>
-      <div class="ev-card forward">
+      <!-- Professional Development -->
+      <div class="ev-card">
         <div class="ev-top">
-          <div class="ev-date"><span class="m">May</span><span class="d">14</span></div>
-          <span class="ev-badge badge-forward">TECO Denver</span>
+          <div class="ev-date soon">Coming<br>soon</div>
+          <span class="ev-badge badge-seminar">Professional Development</span>
         </div>
-        <h3>Dynamics of U.S.–Taiwan–China Relations</h3>
-        <div class="ev-time">Thu, May 14, 2026 · 5:30 pm MDT · In-person</div>
-        <div class="ev-detail"><strong>Speakers:</strong> Dr. Fang-Yu Chen (Soochow University) &amp; Dr. Kharis Templeman (Hoover Institution, Stanford). Opening remarks by Debby H. H. Huang (TECO Denver). Dinner provided.</div>
-        <div class="ev-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Renaissance Room, Mary Reed Building, University of Denver</div>
+        <h3>Professional Development Session</h3>
+        <div class="ev-time">Date coming soon · Hybrid</div>
+        <div class="ev-detail">A hybrid session focused on career growth and professional development for TESS members. Topic, speaker, and date to be announced soon.</div>
         <div class="ev-links">
-          <a href="https://drive.google.com/file/d/1TSAGaHDN3qCKfAknVNjh6Ik_yiaC2USN/view?usp=sharing" target="_blank">Event Flyer ↗</a>
-          <a href="https://crimsonconnect.du.edu/KOR/rsvp_boot?id=2276958" target="_blank">Register ↗</a>
+          <a href="#join">Stay updated ↗</a>
+        </div>
+      </div>
+
+      <!-- Taiwan Night at AMS 2027 -->
+      <div class="ev-card">
+        <div class="ev-top">
+          <div class="ev-date"><span class="m">Jan</span><span class="d">12</span></div>
+          <span class="ev-badge badge-social">Social</span>
+        </div>
+        <h3>Taiwan Night at AMS 2027</h3>
+        <div class="ev-time">Mon, January 12, 2027</div>
+        <div class="ev-detail">A TESS social gathering held during the AMS 2027 Annual Meeting — a great chance to connect with fellow Taiwanese-American earth scientists. Location and details to follow.</div>
+        <div class="ev-links">
+          <a href="#join">Stay updated ↗</a>
         </div>
       </div>
 
@@ -580,7 +612,7 @@
     </div>
 
     <div class="member-stats">
-      <div class="mstat"><div class="n">31</div><div class="l">Total members</div></div>
+      <div class="mstat"><div class="n">38</div><div class="l">Total members</div></div>
       <div class="mstat"><div class="n">22</div><div class="l">Based in Colorado</div></div>
       <div class="mstat"><div class="n">15</div><div class="l">Early-career scientists</div></div>
       <div class="mstat"><div class="n">9</div><div class="l">Lifetime members</div></div>
