@@ -173,6 +173,57 @@
   .highlight-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
   .htag { font-size: 12.5px; background: var(--navy); color: var(--white); padding: 5px 13px; border-radius: 20px; font-weight: 500; }
 
+  /* ---------- PAST EVENT RECAPS (foldable) ---------- */
+  .recaps { margin-top: 64px; }
+  .recaps-title {
+    font-family: 'Spectral', serif; font-size: 24px; color: var(--navy);
+    font-weight: 500; margin-bottom: 8px;
+  }
+  .recaps-sub { font-size: 15px; color: var(--slate); margin-bottom: 26px; }
+  .recap {
+    border: 1px solid var(--line); border-radius: 12px; background: var(--white);
+    margin-bottom: 14px; overflow: hidden; transition: border-color .2s;
+  }
+  .recap[open] { border-color: var(--gold); }
+  .recap-summary {
+    list-style: none; cursor: pointer; padding: 22px 26px;
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    transition: background .2s;
+  }
+  .recap-summary::-webkit-details-marker { display: none; }
+  .recap-summary:hover { background: var(--ice-2); }
+  .recap-summary-main { display: flex; flex-direction: column; gap: 6px; }
+  .recap-date {
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+  }
+  .recap-summary h4 {
+    font-family: 'Spectral', serif; font-size: 19px; color: var(--navy);
+    font-weight: 600; line-height: 1.3;
+  }
+  .recap-arrow {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--ice); display: flex; align-items: center; justify-content: center;
+    transition: transform .25s, background .2s;
+  }
+  .recap-arrow svg { width: 15px; height: 15px; stroke: var(--navy); fill: none; stroke-width: 2.2; }
+  .recap[open] .recap-arrow { transform: rotate(180deg); background: var(--gold-soft); }
+  .recap-content { padding: 4px 26px 28px; }
+  .recap-content p { color: var(--ink); margin-bottom: 14px; }
+  .recap-photos {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px; margin-top: 20px;
+  }
+  .recap-photos img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    border-radius: 8px; border: 1px solid var(--line);
+  }
+  .photo-placeholder {
+    aspect-ratio: 4/3; border-radius: 8px; border: 2px dashed #cbd5e1;
+    background: var(--ice-2); display: flex; align-items: center; justify-content: center;
+    text-align: center; font-size: 12.5px; color: var(--slate-light); padding: 10px;
+  }
+
   /* ---------- UPCOMING EVENTS ---------- */
   .events { background: var(--navy); color: var(--white); }
   .events .sec-tag { background: var(--gold); color: var(--navy); }
@@ -383,6 +434,62 @@
         </div>
       </div>
     </div>
+
+    <!-- ===== PAST EVENT RECAPS (foldable) ===== -->
+    <!--
+      HOW TO USE:
+      • The event above stays OPEN (it's your most recent / featured event).
+      • Each <details class="recap"> block below is a PAST event that starts FOLDED.
+      • To add another past event, copy one whole <details>...</details> block and edit it.
+      • Replace the placeholder text and the photo placeholders with real content.
+      • For photos, swap each <div class="photo-placeholder">...</div> with:
+            <img src="DIRECT_IMAGE_URL" alt="short description" />
+        (You'll send me the photo links and I'll insert them for you.)
+    -->
+    <div class="recaps">
+      <h3 class="recaps-title">Past Event Recaps</h3>
+      <p class="recaps-sub">Click any event below to expand its recap and photos.</p>
+
+      <!-- ===== PAST EVENT #1 (placeholder) ===== -->
+      <details class="recap">
+        <summary class="recap-summary">
+          <div class="recap-summary-main">
+            <span class="recap-date">[ Date · Location ]</span>
+            <h4>[ Event title goes here ]</h4>
+          </div>
+          <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="recap-content">
+          <p>[ Write a short recap of this event here — what it was, who attended, any highlights. ]</p>
+          <div class="recap-photos">
+            <div class="photo-placeholder">Photo 1 — link to be added</div>
+            <div class="photo-placeholder">Photo 2 — link to be added</div>
+            <div class="photo-placeholder">Photo 3 — link to be added</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ===== PAST EVENT #2 (placeholder) ===== -->
+      <details class="recap">
+        <summary class="recap-summary">
+          <div class="recap-summary-main">
+            <span class="recap-date">[ Date · Location ]</span>
+            <h4>[ Event title goes here ]</h4>
+          </div>
+          <span class="recap-arrow"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="recap-content">
+          <p>[ Write a short recap of this event here. ]</p>
+          <div class="recap-photos">
+            <div class="photo-placeholder">Photo 1 — link to be added</div>
+            <div class="photo-placeholder">Photo 2 — link to be added</div>
+            <div class="photo-placeholder">Photo 3 — link to be added</div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+    <!-- ===== END PAST EVENT RECAPS ===== -->
   </div>
 </section>
 
