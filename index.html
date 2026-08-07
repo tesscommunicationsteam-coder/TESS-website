@@ -41,9 +41,20 @@
 
   .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
 
+  /* ---------- TOP BAR (announcement strip + nav) ---------- */
+  .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
+  .announce-bar {
+    display: block; background: var(--gold); color: var(--navy);
+    text-align: center; text-decoration: none; font-weight: 600; font-size: 14px;
+    padding: 10px 18px; letter-spacing: 0.2px; line-height: 1.4;
+    transition: filter .2s;
+  }
+  .announce-bar strong { font-weight: 700; }
+  .announce-bar:hover { filter: brightness(1.06); }
+
   /* ---------- NAV ---------- */
   nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
+    position: relative; width: 100%;
     background: rgba(255,255,255,0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -74,7 +85,7 @@
     background: var(--navy);
     color: var(--white);
     position: relative; overflow: hidden;
-    padding: 150px 0 110px;
+    padding: 168px 0 110px;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
@@ -136,6 +147,41 @@
   .sec-tag.plain { background: var(--ice); color: var(--navy); }
   .sec-title { font-family: 'Spectral', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
   .sec-intro { font-size: 17px; color: var(--slate); margin-top: 16px; }
+
+  /* ---------- AWARDS & HONORS ---------- */
+  .awards { background: var(--white); scroll-margin-top: 130px; }
+  .award-card {
+    display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: stretch;
+    background: var(--ice-2); border: 1px solid var(--line);
+    border-top: 4px solid var(--gold); border-radius: 14px; overflow: hidden;
+  }
+  .award-photo { background: var(--ice); }
+  .award-photo img { width: 100%; height: 100%; min-height: 300px; object-fit: cover; }
+  .award-body { padding: 34px 36px 34px 4px; }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--navy); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.5px; padding: 7px 16px; border-radius: 30px;
+    margin-bottom: 18px;
+  }
+  .award-body h3 {
+    font-family: 'Spectral', serif; font-weight: 600; font-size: 27px;
+    color: var(--navy); line-height: 1.2; margin-bottom: 12px;
+  }
+  .award-role { font-size: 14.5px; color: var(--slate); font-weight: 600; margin-bottom: 18px; }
+  .award-body p { color: var(--ink); margin-bottom: 14px; }
+  .award-tess {
+    background: var(--ice); border-left: 3px solid var(--gold);
+    padding: 14px 18px; border-radius: 8px; font-size: 14.5px; color: var(--ink); margin: 20px 0 0;
+  }
+  .award-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+  .award-links a {
+    display: inline-block; font-size: 14px; font-weight: 600; text-decoration: none;
+    color: var(--navy); background: var(--gold); padding: 10px 20px; border-radius: 7px;
+    transition: all .2s;
+  }
+  .award-links a.secondary { background: transparent; color: var(--blue-link); border: 1px solid #dbe7f7; }
+  .award-links a:hover { transform: translateY(-1px); }
 
   /* ---------- ABOUT / PRESIDENT ---------- */
   .about { background: var(--ice-2); }
@@ -329,6 +375,10 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 920px) {
     .hero-grid, .about-grid, .highlight-grid { grid-template-columns: 1fr; gap: 40px; }
+    .award-card { grid-template-columns: 1fr; gap: 0; }
+    .award-photo img { min-height: 260px; max-height: 340px; }
+    .award-body { padding: 30px 28px; }
+    .hero { padding-top: 176px; }
     .pres-card { position: static; max-width: 320px; }
     .ev-grid, .member-stats { grid-template-columns: 1fr 1fr; }
     .board-grid { grid-template-columns: repeat(3,1fr); }
@@ -342,13 +392,17 @@
     .ev-grid, .member-stats, .board-grid, .foot-grid { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
     .board-grid { grid-template-columns: 1fr 1fr; }
+    .announce-bar { font-size: 12.5px; padding: 8px 14px; line-height: 1.35; }
+    .hero { padding-top: 188px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- TOP BAR: announcement strip + nav -->
+<div class="topbar">
+  <a href="#awards" class="announce-bar">🏅 Congratulations to <strong>Dr. Sen Chiao</strong> on his election as a <strong>2027 AMS Fellow!</strong></a>
+  <nav>
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
       <img class="nav-logo" src="photo/logo/small_logo.png" alt="TESS logo" />
@@ -367,6 +421,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
   </div>
 </nav>
+</div>
 
 <!-- HERO -->
 <header class="hero" id="top">
@@ -382,6 +437,33 @@
     </div>
   </div>
 </header>
+
+<!-- AWARDS & HONORS -->
+<section class="block awards" id="awards">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Awards &amp; Honors</span>
+      <h2 class="sec-title">Celebrating our community's achievements</h2>
+    </div>
+    <div class="award-card">
+      <div class="award-photo">
+        <img src="photo/award_recipient/Sen-Chiao.jpg" alt="Dr. Sen Chiao" />
+      </div>
+      <div class="award-body">
+        <span class="award-badge">🏅 2027 AMS Fellow</span>
+        <h3>Congratulations to Dr. Sen Chiao</h3>
+        <p class="award-role">Director, NOAA Cooperative Science Center in Atmospheric Sciences and Meteorology (NCAS-M) · Professor, Howard University</p>
+        <p>The Taiwanese-American Earth Science Society (TESS) warmly congratulates Dr. Sen Chiao on being elected a 2027 Fellow of the American Meteorological Society (AMS), one of the Society's highest honors recognizing outstanding contributions to the atmospheric and related sciences.</p>
+        <p>Dr. Chiao's distinguished career has advanced atmospheric science through research in numerical weather prediction, atmospheric dynamics, air quality, and climate, while his leadership has strengthened research, education, and workforce development.</p>
+        <p class="award-tess">TESS is honored that Dr. Chiao has agreed to serve as a TESS Advisor and a speaker for the upcoming TESS Professional Development Roundtable. We sincerely congratulate him on this well-deserved recognition and wish him continued success in research, education, and scientific leadership.</p>
+        <div class="award-links">
+          <a href="https://www.ametsoc.org/ams/about-ams/ams-awards-honors/2027-award-and-honors-recipients/" target="_blank" rel="noopener">AMS Announcement ↗</a>
+          <a class="secondary" href="https://profiles.howard.edu/sen-chiao" target="_blank" rel="noopener">Howard Profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT / PRESIDENT'S MESSAGE -->
 <section class="block about" id="about">
