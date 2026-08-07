@@ -87,6 +87,7 @@
     position: relative; z-index: 2;
     display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center;
   }
+  .hero-single { position: relative; z-index: 2; max-width: 760px; }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
     border: 1px solid rgba(244,184,60,0.45); background: rgba(244,184,60,0.1);
@@ -370,24 +371,13 @@
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="hero-eyebrow">Established January 2026</span>
-        <h1>Connecting <em>Taiwanese-American</em> Earth Society</h1>
-        <p class="hero-lede">A professional society dedicated to supporting professional development, fostering networking, and promoting scientific collaboration among Taiwanese-American scientists and engineers in the earth sciences.</p>
-        <div class="hero-actions">
-          <a href="#join" class="btn btn-gold">Become a Member</a>
-          <a href="#about" class="btn btn-outline-light">Our Mission</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3>TESS at a Glance</h3>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="n">38</div><div class="l">Members &amp; growing</div></div>
-          <div class="hero-stat"><div class="n">7</div><div class="l">Board members</div></div>
-          <div class="hero-stat"><div class="n">9</div><div class="l">Lifetime members</div></div>
-          <div class="hero-stat"><div class="n">2026</div><div class="l">Year founded</div></div>
-        </div>
+    <div class="hero-single">
+      <span class="hero-eyebrow">Established January 2026</span>
+      <h1>Connecting <em>Taiwanese-American</em> Earth Society</h1>
+      <p class="hero-lede">A professional society dedicated to supporting professional development, fostering networking, and promoting scientific collaboration among Taiwanese-American scientists and engineers in the earth sciences.</p>
+      <div class="hero-actions">
+        <a href="#join" class="btn btn-gold">Become a Member</a>
+        <a href="#about" class="btn btn-outline-light">Our Mission</a>
       </div>
     </div>
   </div>
@@ -600,14 +590,7 @@
     <div class="sec-head" style="text-align:center; margin-left:auto; margin-right:auto;">
       <span class="sec-tag plain">Membership Update</span>
       <h2 class="sec-title">A growing community</h2>
-      <p class="sec-intro">Since recruiting began on February 20, 2026, our community has grown quickly — with members across career stages and a strong base in atmospheric research.</p>
-    </div>
-
-    <div class="member-stats">
-      <div class="mstat"><div class="n">38</div><div class="l">Total members</div></div>
-      <div class="mstat"><div class="n">22</div><div class="l">Based in Colorado</div></div>
-      <div class="mstat"><div class="n">15</div><div class="l">Early-career scientists</div></div>
-      <div class="mstat"><div class="n">9</div><div class="l">Lifetime members</div></div>
+      <p class="sec-intro">Since recruiting began in 2026, our community has grown quickly — with members across career stages and a strong base in atmospheric research.</p>
     </div>
 
     <h3 class="board-title">Our Board Members</h3>
