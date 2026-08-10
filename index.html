@@ -383,7 +383,6 @@
     .hero { padding-top: 176px; }
     .pres-card { position: static; max-width: 320px; }
     .ev-grid, .member-stats { grid-template-columns: 1fr 1fr; }
-    .board-grid { grid-template-columns: repeat(3,1fr); }
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .mission-row { grid-template-columns: 1fr; }
     .nav-links { display: none; }
@@ -391,9 +390,10 @@
     .nav-toggle { display: block; }
   }
   @media (max-width: 560px) {
-    .ev-grid, .member-stats, .board-grid, .foot-grid { grid-template-columns: 1fr; }
+    .ev-grid, .member-stats, .foot-grid { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
-    .board-grid { grid-template-columns: 1fr 1fr; }
+    .board-card { flex-basis: 44%; max-width: 44%; padding: 18px 12px; }
+    .board-avatar { width: 92px; height: 92px; font-size: 28px; }
     .announce-bar { font-size: 12.5px; padding: 8px 14px; line-height: 1.35; }
     .hero { padding-top: 188px; }
   }
@@ -671,46 +671,52 @@
     </div>
 
     <h3 class="board-title">Our Board Members</h3>
-    <div class="board-grid">
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/ying-hwa-kuo.jpg" alt="Ying-Hwa (Bill) Kuo" style="transform: scale(1.20);" /></div>
-        <div class="role">President</div>
-        <div class="name">Ying-Hwa (Bill) Kuo</div>
+    <div class="board-rows">
+      <div class="board-row">
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/ying-hwa-kuo.jpg" alt="Ying-Hwa (Bill) Kuo" style="transform: scale(1.20);" /></div>
+          <div class="role">President</div>
+          <div class="name">Ying-Hwa (Bill) Kuo</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/cheng-hsuan-lu.jpg" alt="Cheng-Hsuan (Sarah) Lu" style="transform: scale(1.20);" /></div>
+          <div class="role">President Elect</div>
+          <div class="name">Cheng-Hsuan (Sarah) Lu</div>
+        </div>
       </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/cheng-hsuan-lu.jpg" alt="Cheng-Hsuan (Sarah) Lu" style="transform: scale(1.20);" /></div>
-        <div class="role">President Elect</div>
-        <div class="name">Cheng-Hsuan (Sarah) Lu</div>
+      <div class="board-row">
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/tzu-shun-lin.jpg" alt="Tzu-Shun Lin" style="object-position: center 5%;" /></div>
+          <div class="role">Finance</div>
+          <div class="name">Tzu-Shun Lin</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar">CH</div>
+          <div class="role">Membership</div>
+          <div class="name">Chih-Ting Hsu</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/ting-yu-cha.jpg" alt="Ting-Yu Cha" /></div>
+          <div class="role">Membership</div>
+          <div class="name">Ting-Yu Cha</div>
+        </div>
       </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/tzu-shun-lin.jpg" alt="Tzu-Shun Lin" style="object-position: center 5%;" /></div>
-        <div class="role">Finance</div>
-        <div class="name">Tzu-Shun Lin</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar">CH</div>
-        <div class="role">Membership</div>
-        <div class="name">Chih-Ting Hsu</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/ting-yu-cha.jpg" alt="Ting-Yu Cha" /></div>
-        <div class="role">Membership</div>
-        <div class="name">Ting-Yu Cha</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/hsiao-chun-lin.jpg" alt="Hsiao-Chun Lin" /></div>
-        <div class="role">Event</div>
-        <div class="name">Hsiao-Chun Lin</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/shih-wei-wei.jpg" alt="Shih-Wei Wei" style="transform: scale(1.20);" /></div>
-        <div class="role">Event</div>
-        <div class="name">Shih-Wei Wei</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="photo/board_headshot/yao-chun-ko.jpg" alt="Yao-Chun Ko" /></div>
-        <div class="role">Communication</div>
-        <div class="name">Yao-Chun Ko</div>
+      <div class="board-row">
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/hsiao-chun-lin.jpg" alt="Hsiao-Chun Lin" /></div>
+          <div class="role">Event</div>
+          <div class="name">Hsiao-Chun Lin</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/shih-wei-wei.jpg" alt="Shih-Wei Wei" style="transform: scale(1.20);" /></div>
+          <div class="role">Event</div>
+          <div class="name">Shih-Wei Wei</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar"><img src="photo/board_headshot/yao-chun-ko.jpg" alt="Yao-Chun Ko" /></div>
+          <div class="role">Communication</div>
+          <div class="name">Yao-Chun Ko</div>
+        </div>
       </div>
     </div>
   </div>
