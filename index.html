@@ -335,10 +335,11 @@
   .mstat .n { font-family: 'Spectral', serif; font-size: 44px; font-weight: 600; color: var(--navy); line-height: 1; }
   .mstat .l { font-size: 13px; color: var(--slate); margin-top: 8px; }
   .board-title { font-family: 'Spectral', serif; font-size: 24px; color: var(--navy); font-weight: 500; margin-bottom: 24px; text-align: center; }
-  .board-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-  .board-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 20px 18px; text-align: center; transition: all .2s; }
+  .board-rows { display: flex; flex-direction: column; gap: 16px; }
+  .board-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .board-card { flex: 0 0 210px; max-width: 210px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 24px 18px; text-align: center; transition: all .2s; }
   .board-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .board-avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-size: 28px; font-weight: 600; margin: 0 auto 16px; overflow: hidden; }
+  .board-avatar { width: 120px; height: 120px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-size: 36px; font-weight: 600; margin: 0 auto 16px; overflow: hidden; }
   .board-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .board-card .role { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
   .board-card .name { font-size: 14.5px; color: var(--navy); font-weight: 600; margin-top: 5px; line-height: 1.35; }
@@ -502,7 +503,7 @@
           <div class="mission-item">
             <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
             <h4>Scientific Collaboration</h4>
-            <p>Promoting research partnerships that strengthen ties between Taiwan and the U.S.</p>
+            <p>Opening doors for Taiwanese-American scientists to collaborate in the U.S.</p>
           </div>
         </div>
       </div>
