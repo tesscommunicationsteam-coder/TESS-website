@@ -374,6 +374,12 @@
   .foot-bottom a { color: var(--gold); }
 
   /* ---------- RESPONSIVE ---------- */
+  /* Tablet / narrow desktop: keep the clean 2 + 3 + 3 by fitting each row on one line */
+  @media (min-width: 561px) and (max-width: 860px) {
+    .board-row { flex-wrap: nowrap; }
+    .board-card { flex: 1 1 0; min-width: 0; max-width: 250px; padding: 22px 12px; }
+    .board-avatar { width: 120px; height: 120px; font-size: 36px; }
+  }
   @media (max-width: 920px) {
     .hero-grid, .about-grid, .highlight-grid { grid-template-columns: 1fr; gap: 40px; }
     .award-card { grid-template-columns: 1fr; gap: 0; }
