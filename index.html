@@ -335,6 +335,8 @@
   .mstat .n { font-family: 'Spectral', serif; font-size: 44px; font-weight: 600; color: var(--navy); line-height: 1; }
   .mstat .l { font-size: 13px; color: var(--slate); margin-top: 8px; }
   .board-title { font-family: 'Spectral', serif; font-size: 24px; color: var(--navy); font-weight: 500; margin-bottom: 24px; text-align: center; }
+  .board-title.advisory { margin-top: 64px; margin-bottom: 8px; }
+  .board-sub { text-align: center; font-size: 15px; color: var(--slate); max-width: 600px; margin: 0 auto 24px; }
   .board-rows { display: flex; flex-direction: column; gap: 16px; }
   .board-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
   .board-card { flex: 0 0 250px; max-width: 250px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 30px 24px; text-align: center; transition: all .2s; }
@@ -719,6 +721,52 @@
           <div class="board-avatar"><img src="photo/board_headshot/yao-chun-ko.jpg" alt="Yao-Chun Ko" /></div>
           <div class="role">Communication</div>
           <div class="name">Yao-Chun Ko</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ADVISORY BOARD ===== -->
+    <!-- Headshots: add photos at photo/advisory_board_headshot/<name>.jpg; until then, initials are shown automatically. -->
+    <h3 class="board-title advisory">Our Advisory Board</h3>
+    <p class="board-sub">Distinguished scientists who guide TESS with their experience and vision.</p>
+    <div class="board-rows">
+      <div class="board-row">
+        <div class="board-card">
+          <div class="board-avatar" data-initials="SC"><img src="photo/advisory_board_headshot/sen-chiao.jpg" alt="Sen Chiao" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Sen Chiao</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar" data-initials="CC"><img src="photo/advisory_board_headshot/christine-chiu.jpg" alt="Christine Chiu" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Christine Chiu</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar" data-initials="HC"><img src="photo/advisory_board_headshot/hui-ya.jpg" alt="Hui-Ya Chuang" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Hui-Ya Chuang</div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="board-card">
+          <div class="board-avatar" data-initials="IH"><img src="photo/advisory_board_headshot/i-kuan-hu.jpg" alt="I-Kuan Hu" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">I-Kuan Hu</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar" data-initials="KW"><img src="photo/advisory_board_headshot/kuo-nung-wang.jpg" alt="Kuo-Nung Wang" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Kuo-Nung Wang</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar" data-initials="LL"><img src="photo/advisory_board_headshot/liao-fan-lin.jpg" alt="Liaofan Lin" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Liaofan Lin</div>
+        </div>
+        <div class="board-card">
+          <div class="board-avatar" data-initials="YC"><img src="photo/advisory_board_headshot/yu-cheng.jpg" alt="Yu Cheng" onerror="this.parentNode.textContent=this.parentNode.dataset.initials" /></div>
+          <div class="role">Advisor</div>
+          <div class="name">Yu Cheng</div>
         </div>
       </div>
     </div>
